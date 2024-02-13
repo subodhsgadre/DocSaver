@@ -1,0 +1,21 @@
+﻿@model AddRole
+@{
+    ViewData["Title"] = "Add Role";
+}
+
+<form method="post" asp-action="CreateRole" asp-controller="Account">
+    <h3 class="text-muted mb-1 text-center" style="font-size:20px">Add New Role</h3>
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="mb-3">
+        <label class="mb-2" asp-for="RoleName"></label>
+        <input type="text" class="form-control" asp-for="RoleName" placeholder="Enter Role" />
+        <span asp-validation-for="RoleName" class="text-danger"></span>
+    </div>
+    <div class="float-end">
+        <button type="submit" class="btn btn-primary m-2">AddRole</button>
+    </div>
+</form>
+@section scripts {
+    <partial name="_ValidationScriptsPartial.cshtml" />
+}
+

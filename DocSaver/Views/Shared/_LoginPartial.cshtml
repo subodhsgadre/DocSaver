@@ -1,0 +1,34 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<IdentityUser> signInManager;
+@inject UserManager<IdentityUser> userManager;
+
+
+<ul class="navbar-nav">
+    @if (signInManager.IsSignedIn(User))
+    {
+        @if (User.IsInRole("Admin"))
+        {
+            <li class="nav-item">
+                <a class="nav-link text-danger" asp-action="GetRoles" asp-controller="Account">Role Manager</a>
+            </li>
+        }
+        <li class="nav-item">
+            <a class="nav-link text-muted text-dark">Hello @userManager.GetUserName(User);</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-danger" asp-action="Logout" asp-controller="Account">LogOut</a>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a asp-action="Login" asp-controller="Account" class="nav-link">Login</a>
+        </li>
+        <li class="nav-item">
+            <a asp-action="Register" asp-controller="Account" class="nav-link">Register</a>
+        </li>
+    }
+</ul>
+<script>
+
+</script>

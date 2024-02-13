@@ -1,0 +1,37 @@
+﻿@model Register
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_LayoutLoginRegister.cshtml";
+}
+
+<form method="post" asp-action="Register" asp-controller="Account">
+    <h3 class="text-muted mb-1 text-center" style="font-size:20px">Create an Account</h3>    
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="mb-3">
+        <label class="mb-2" asp-for="Email"></label>
+        <input type="email" class="form-control" asp-for="Email" autocomplete="Email" placeholder="Enter Email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="mb-2" asp-for="Username"></label>
+        <input type="text" class="form-control" asp-for="Username" autocomplete="off" placeholder="Enter Username" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="mb-2" asp-for="Password"></label>
+        <input type="password" class="form-control" asp-for="Password" autocomplete="off" placeholder="Enter Password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="mb-2" asp-for="ConfirmPassword"></label>
+        <input type="password" class="form-control" asp-for="ConfirmPassword" autocomplete="off" placeholder="Enter Email" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+    <div class="float-end">
+        <button type="submit" class="btn btn-primary m-2">Register</button>
+    </div>
+</form>
+@section scripts{
+    <partial name="_ValidationScriptsPartial.cshtml" />
+}
+
